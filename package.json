@@ -71,6 +71,7 @@
     "nest-commander-schematics": "^2.0.1",
     "nest-commander-testing": "^2.0.1",
     "remark-man": "^8.0.0",
+    "semantic-release-config": "^0.0.2",
     "sleekfast": "^0.0.1",
     "source-map-support": "^0.5.20"
   },
@@ -230,6 +231,6 @@
         "prerelease": true
       }
     ],
-    "extends": "@washingtondc/release"
+    "extends": "semantic-release-config"
   }
 }

@@ -1,0 +1,238 @@
+{
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "bin": {
+    "common-shared": "bin/cli"
+  },
+  "blueprint": {
+    "customPackageName": "mblabs",
+    "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
+    "group": "npm",
+    "name": "MBLabs",
+    "overview": "**MBLabs** is a CLI made with [Nest.js](https://nestjs.com/) and [Nest.js Commander](https://docs.nestjs.com/recipes/nest-commander). It performs miscellaneous tasks that do not quite fit in other projects. For instance, it:\n\n* Houses various prompts used by our Taskfile.yml setup",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/mblabs",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/cli/mblabs"
+    },
+    "slug": "mblabs",
+    "subgroup": "cli",
+    "subheader_description": "MBLabs is the CLI tool where we store functionality that does not quite fit anywhere else",
+    "title": "MBLabs - A Megabyte Labs Tool"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/npm/cli/mblabs/-/issues"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional"
+    }
+  },
+  "dependencies": {
+    "@nestjs/common": "8.1.2",
+    "@nestjs/config": "^1.0.3",
+    "@nestjs/core": "8.1.2",
+    "chalk": "^4.1.2",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "cosmiconfig": "^7.0.1",
+    "nest-commander": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.2.0",
+    "shelljs": "^0.8.4",
+    "update-notifier": "^5.1.0"
+  },
+  "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
+  "devDependencies": {
+    "@megabytelabs/jest-preset": "^1.0.0",
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@types/node": "^16.11.6",
+    "@types/shelljs": "^0.8.9",
+    "@types/update-notifier": "^5.1.0",
+    "@washingtondc/development": "^1.0.2",
+    "@washingtondc/eslint": "^1.0.1",
+    "@washingtondc/prettier": "^1.0.0",
+    "@washingtondc/release": "^0.0.2",
+    "esbuild": "^0.12.29",
+    "esbuild-node-externals": "^1.3.0",
+    "eslint-config-strict-mode": "^1.0.0",
+    "nest-commander-schematics": "^2.0.1",
+    "nest-commander-testing": "^2.0.1",
+    "remark-man": "^8.0.0",
+    "sleekfast": "^0.0.1",
+    "source-map-support": "^0.5.20"
+  },
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "homepage": "https://megabyte.space",
+  "jest": {
+    "preset": "@megabytelabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "bin",
+    "cli",
+    "commander",
+    "config",
+    "cosmicconfig",
+    "editorconfig",
+    "eslint",
+    "eslint-config",
+    "formatter",
+    "inquirer",
+    "javascript",
+    "lint",
+    "linter",
+    "manpage",
+    "mblabs",
+    "megabytelabs",
+    "nestjs",
+    "prettier",
+    "professormanhattan",
+    "schema",
+    "toml",
+    "tsdoc",
+    "typescript",
+    "washingtondc",
+    "yaml"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(js|jsx|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.json": [
+      "task fix:json --"
+    ],
+    "**/*.sh": [
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "**/*.yml": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
+  "main": "dist/main.js",
+  "man": "man",
+  "name": "mblabs",
+  "nodemonConfig": {
+    "exec": "tsc -p . && node --inspect-brk dist/main",
+    "ext": "js,jsx,json,ts,tsx,yml",
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
+    "watch": [
+      ".env",
+      "src"
+    ]
+  },
+  "ntl": {
+    "descriptions": {
+      "help": "Display a list of tasks that can be run via the Taskfile.yml",
+      "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
+    }
+  },
+  "optionalDependencies": {},
+  "pkg": {
+    "compress": "Brotli",
+    "outputPath": "build"
+  },
+  "prettier": "@washingtondc/prettier",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "extends": "@washingtondc/release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/mblabs.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash .config/start.sh",
+    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
+  },
+  "type": "module",
+  "typings": "dist/main.d.ts",
+  "version": "1.0.26"
+}

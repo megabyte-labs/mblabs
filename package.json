@@ -1,38 +1,43 @@
 {
+  "private": false,
+  "name": "mblabs",
+  "version": "1.0.26",
+  "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "bin": {
-    "common-shared": "bin/cli"
-  },
-  "blueprint": {
-    "customPackageName": "mblabs",
-    "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
-    "group": "npm",
-    "name": "MBLabs",
-    "overview": "**MBLabs** is a CLI made with [Nest.js](https://nestjs.com/) and [Nest.js Commander](https://docs.nestjs.com/recipes/nest-commander). It performs miscellaneous tasks that do not quite fit in other projects. For instance, it:\n\n* Houses various prompts used by our Taskfile.yml setup",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/mblabs",
-      "gitlab": "https://gitlab.com/megabyte-labs/npm/cli/mblabs"
-    },
-    "slug": "mblabs",
-    "subgroup": "cli",
-    "subheader_description": "MBLabs is the CLI tool where we store functionality that does not quite fit anywhere else",
-    "title": "MBLabs - A Megabyte Labs Tool"
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/mblabs.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/cli/mblabs/-/issues"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  "type": "module",
+  "main": "dist/main.js",
+  "man": "man",
+  "bin": {
+    "common-shared": "bin/cli"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash .config/start.sh",
+    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-emoji-conventional"
     }
   },
+  "typings": "dist/main.d.ts",
   "dependencies": {
     "@nestjs/common": "8.1.2",
     "@nestjs/config": "^1.0.3",
@@ -47,7 +52,7 @@
     "shelljs": "^0.8.4",
     "update-notifier": "^5.1.0"
   },
-  "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
+  "optionalDependencies": {},
   "devDependencies": {
     "@megabytelabs/jest-preset": "^1.0.0",
     "@nestjs/cli": "^8.0.0",
@@ -68,46 +73,6 @@
     "remark-man": "^8.0.0",
     "sleekfast": "^0.0.1",
     "source-map-support": "^0.5.20"
-  },
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
-  },
-  "files": [
-    "bin/",
-    "dist/",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ],
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "homepage": "https://megabyte.space",
-  "jest": {
-    "preset": "@megabytelabs/jest-preset",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
   },
   "keywords": [
     "bin",
@@ -136,7 +101,62 @@
     "washingtondc",
     "yaml"
   ],
-  "license": "MIT",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "blueprint": {
+    "customPackageName": "mblabs",
+    "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
+    "group": "npm",
+    "name": "MBLabs",
+    "overview": "**MBLabs** is a CLI made with [Nest.js](https://nestjs.com/) and [Nest.js Commander](https://docs.nestjs.com/recipes/nest-commander). It performs miscellaneous tasks that do not quite fit in other projects. For instance, it:\n\n* Houses various prompts used by our Taskfile.yml setup",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/mblabs",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/cli/mblabs"
+    },
+    "slug": "mblabs",
+    "subgroup": "cli",
+    "subheader_description": "MBLabs is the CLI tool where we store functionality that does not quite fit anywhere else",
+    "title": "MBLabs - A Megabyte Labs Tool"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "jest": {
+    "preset": "@megabytelabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
   "lint-staged": {
     "**/!(logo).(jpg|png)": [
       "task image:compress --"
@@ -173,9 +193,6 @@
       "task image:compress --"
     ]
   },
-  "main": "dist/main.js",
-  "man": "man",
-  "name": "mblabs",
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -195,16 +212,11 @@
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
     }
   },
-  "optionalDependencies": {},
   "pkg": {
     "compress": "Brotli",
     "outputPath": "build"
   },
   "prettier": "@washingtondc/prettier",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "release": {
     "branches": [
       "main",
@@ -219,20 +231,5 @@
       }
     ],
     "extends": "@washingtondc/release"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/mblabs.git"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "help": "task --list",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh",
-    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
-  },
-  "type": "module",
-  "typings": "dist/main.d.ts",
-  "version": "1.0.26"
+  }
 }

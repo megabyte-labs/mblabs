@@ -124,6 +124,16 @@
     "subheader_description": "MBLabs is the CLI tool where we store functionality that does not quite fit anywhere else",
     "title": "MBLabs - A Megabyte Labs Tool"
   },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"

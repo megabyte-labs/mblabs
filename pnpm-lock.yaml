@@ -3399,7 +3399,7 @@ packages:
       ajv:
         optional: true
     dependencies:
-      ajv: 8.6.3
+      ajv: 8.8.2
     dev: true
 
   /ajv-keywords/3.5.2_ajv@6.12.6:

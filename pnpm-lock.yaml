@@ -4168,7 +4168,7 @@ packages:
       '@storybook/store': 6.4.17
       '@storybook/theming': 6.4.17
       '@storybook/ui': 6.4.17
-      '@types/node': 14.18.9
+      '@types/node': 14.18.10
       '@types/webpack': 4.41.32
       autoprefixer: 9.8.8
       babel-loader: 8.2.3_2ca4133eaad1ede48c0159d2a9c3555f
@@ -4413,7 +4413,7 @@ packages:
       '@babel/register': 7.16.9_@babel+core@7.16.12
       '@storybook/node-logger': 6.4.17
       '@storybook/semver': 7.3.2
-      '@types/node': 14.18.9
+      '@types/node': 14.18.10
       '@types/pretty-hrtime': 1.0.1
       babel-loader: 8.2.3_2ca4133eaad1ede48c0159d2a9c3555f
       babel-plugin-macros: 3.1.0
@@ -4480,7 +4480,7 @@ packages:
       '@storybook/node-logger': 6.4.17
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.4.17
-      '@types/node': 14.18.9
+      '@types/node': 14.18.10
       '@types/node-fetch': 2.5.12
       '@types/pretty-hrtime': 1.0.1
       '@types/webpack': 4.41.32
@@ -4603,7 +4603,7 @@ packages:
       '@storybook/node-logger': 6.4.17
       '@storybook/theming': 6.4.17
       '@storybook/ui': 6.4.17
-      '@types/node': 14.18.9
+      '@types/node': 14.18.10
       '@types/webpack': 4.41.32
       babel-loader: 8.2.3_2ca4133eaad1ede48c0159d2a9c3555f
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -5050,8 +5050,8 @@ packages:
       form-data: 3.0.1
     dev: true
 
-  /@types/node/14.18.9:
-    resolution: {integrity: sha512-j11XSuRuAlft6vLDEX4RvhqC0KxNxx6QIyMXNb0vHHSNPXTPeiy3algESWmOOIzEtiEL0qiowPU3ewW9hHVa7Q==}
+  /@types/node/14.18.10:
+    resolution: {integrity: sha512-6iihJ/Pp5fsFJ/aEDGyvT4pHGmCpq7ToQ/yf4bl5SbVAvwpspYJ+v3jO7n8UyjhQVHTy+KNszOozDdv+O6sovQ==}
     dev: true
 
   /@types/node/16.11.21:
@@ -6069,7 +6069,7 @@ packages:
       ajv:
         optional: true
     dependencies:
-      ajv: 8.8.2
+      ajv: 8.6.3
     dev: true
 
   /ajv-keywords/3.5.2_ajv@6.12.6:
@@ -7926,6 +7926,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+    optional: true
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -11839,7 +11840,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.3
+      chokidar: 3.5.2
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0
@@ -11870,7 +11871,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.3
+      chokidar: 3.5.2
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0

@@ -30,7 +30,7 @@
     "prepare": "task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "bash start.sh",
-    "test": "[[ -z $CI ]] &amp;&amp; task npm:test || task npm:test:ci"
+    "test": "[[ -z $CI ]] && task npm:test || task npm:test:ci"
   },
   "config": {
     "commitizen": {

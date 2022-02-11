@@ -6969,7 +6969,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
-    optional: true
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -10195,7 +10194,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.2
+      chokidar: 3.5.3
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0
@@ -10226,7 +10225,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.2
+      chokidar: 3.5.3
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0

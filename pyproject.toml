@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "npm-mblabs"
+name = "mblabs"
 version = "1.0.26"
 description = "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem"
 authors = ["Brian Zalewski <brian@megabyte.space>"]

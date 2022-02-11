@@ -75,7 +75,7 @@ devDependencies:
   nest-commander-testing: 2.0.1_4f3dd7a0871b89a08576e40e7541c547
   prettier-config-sexy-mode: 1.0.1
   remark-man: 8.0.1
-  semantic-release-config: 1.1.13_@types+node@16.11.24
+  semantic-release-config: 1.1.15_@types+node@16.11.24
   source-map-support: 0.5.21
 
 packages:
@@ -4816,7 +4816,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       '@typescript-eslint/types': 5.11.0
-      eslint-visitor-keys: 3.2.0
+      eslint-visitor-keys: 3.3.0
     dev: true
 
   /@washingtondc/development/1.0.10_@types+node@16.11.24:
@@ -6961,7 +6961,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
-    optional: true
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -9500,8 +9499,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-visitor-keys/3.2.0:
-    resolution: {integrity: sha512-IOzT0X126zn7ALX0dwFiUQEdsfzrm4+ISsQS8nukaJXwEyYKRSnEIIDULYg1mCtGp7UUXgfGl7BIolXREQK+XQ==}
+  /eslint-visitor-keys/3.3.0:
+    resolution: {integrity: sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
@@ -9520,7 +9519,7 @@ packages:
       escape-string-regexp: 4.0.0
       eslint-scope: 7.1.0
       eslint-utils: 3.0.0_eslint@8.8.0
-      eslint-visitor-keys: 3.2.0
+      eslint-visitor-keys: 3.3.0
       espree: 9.3.0
       esquery: 1.4.0
       esutils: 2.0.3
@@ -9564,7 +9563,7 @@ packages:
     dependencies:
       acorn: 8.7.0
       acorn-jsx: 5.3.2_acorn@8.7.0
-      eslint-visitor-keys: 3.2.0
+      eslint-visitor-keys: 3.3.0
     dev: true
 
   /esprima/4.0.1:
@@ -10194,7 +10193,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.2
+      chokidar: 3.5.3
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0
@@ -10225,7 +10224,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.9
       chalk: 4.1.2
-      chokidar: 3.5.2
+      chokidar: 3.5.3
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: 9.1.0
@@ -17603,8 +17602,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /semantic-release-config/1.1.13_@types+node@16.11.24:
-    resolution: {integrity: sha512-ClIVaEsf+8OOSpOZzv3Jtsw+zlxD8ChnjAovmE4otjR9erAXjh3Zm3ZlAd748MANFg9Mhdai7q6etN3zD7f8Tw==}
+  /semantic-release-config/1.1.15_@types+node@16.11.24:
+    resolution: {integrity: sha512-FQAkl7r88NQRDXVrL4A4I2S8Gob+7eI2uQFaMDHEJAoygU/Eak8WZLe0usd1PKedUwx2MZOPvGY5EQK4TSI1Cw==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2

@@ -2994,9 +2994,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@npmcli/fs/1.1.0:
-    resolution: {integrity: sha512-VhP1qZLXcrXRIaPoqb4YA55JQxLNF3jNR4T55IdOJa3+IFJKNYHtPvtXx8slmeMavj37vCzCfrqQM1vWLsYKLA==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16}
+  /@npmcli/fs/1.1.1:
+    resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
     dependencies:
       '@gar/promisify': 1.1.2
       semver: 7.3.5
@@ -3331,7 +3330,7 @@ packages:
       lodash: 4.17.21
       nerf-dart: 1.0.0
       normalize-url: 6.1.0
-      npm: 8.4.1
+      npm: 8.5.0
       rc: 1.2.8
       read-pkg: 5.2.0
       registry-auth-token: 4.2.1
@@ -6010,14 +6009,6 @@ packages:
     resolution: {integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==}
     dev: true
 
-  /axios/0.21.4:
-    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
-    dependencies:
-      follow-redirects: 1.14.8
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
   /axios/0.23.0:
     resolution: {integrity: sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==}
     dependencies:
@@ -6025,6 +6016,14 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: false
+
+  /axios/0.25.0:
+    resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
+    dependencies:
+      follow-redirects: 1.14.8
+    transitivePeerDependencies:
+      - debug
+    dev: true
 
   /babel-core/7.0.0-bridge.0_@babel+core@7.17.2:
     resolution: {integrity: sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==}
@@ -6646,7 +6645,7 @@ packages:
     resolution: {integrity: sha512-VVdYzXEn+cnbXpFgWs5hTT7OScegHVmLhJIR8Ufqk3iFD6A6j5iSX1KuBTfNEv4tdJWE2PzA6IVFtcLC7fN9wQ==}
     engines: {node: '>= 10'}
     dependencies:
-      '@npmcli/fs': 1.1.0
+      '@npmcli/fs': 1.1.1
       '@npmcli/move-file': 1.1.2
       chownr: 2.0.0
       fs-minipass: 2.1.0
@@ -7019,7 +7018,7 @@ packages:
   /class-validator/0.13.2:
     resolution: {integrity: sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw==}
     dependencies:
-      libphonenumber-js: 1.9.48
+      libphonenumber-js: 1.9.49
       validator: 13.7.0
     dev: false
 
@@ -12351,7 +12350,7 @@ packages:
       prompts: 2.4.2
       spawnd: 6.0.2
       tree-kill: 1.2.2
-      wait-on: 6.0.0
+      wait-on: 6.0.1
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -13892,8 +13891,8 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /libphonenumber-js/1.9.48:
-    resolution: {integrity: sha512-2aiDGkr5Ty7LZRhKhnMeV9tfRbzd2zahgF12I0v11AFwEelSdiu5t8/Npf3UejKcuoO4anqTdjnIW3dEtj1xYQ==}
+  /libphonenumber-js/1.9.49:
+    resolution: {integrity: sha512-/wEOIONcVboFky+lWlCaF7glm1FhBz11M5PHeCApA+xDdVfmhKjHktHS8KjyGxouV5CSXIr4f3GvLSpJa4qMSg==}
     dev: false
 
   /lilconfig/2.0.4:
@@ -15078,8 +15077,8 @@ packages:
     resolution: {integrity: sha512-XxYDdcQ6eKqp/YjI+tb2C5WM2LgjnZrfYg4vgQt49EK268b6gYCHsBLrK2qvJo4FmCtqmKezb0WZFK4fkrZNsg==}
     dev: true
 
-  /node-sql-parser/4.0.8:
-    resolution: {integrity: sha512-V5gvhEdDiiL2yuXK8KQ4Z0flkfwpdOtL7+HRt6GzxGoMEdHStzcLeSFu4TYoWrkuQ6ZPipeNi+D8Z43QxkMqTg==}
+  /node-sql-parser/4.1.0:
+    resolution: {integrity: sha512-rohEIKkAWmkhIWm/Kq8P7GbtOERlqrS+1JGp+MwMVpCzfMbnwemRA0GF3ma89yL0MjhzAeT2yawBGLVO4rM5IA==}
     engines: {node: '>=8'}
     dependencies:
       big-integer: 1.6.51
@@ -15210,8 +15209,8 @@ packages:
       path-key: 3.1.1
     dev: true
 
-  /npm/8.4.1:
-    resolution: {integrity: sha512-Br6GQ6MGF06MhgBNhAJ4heYsCO5NJDKXnwHGaBgNDFz6HZiEOhc+sDGEcoXki4IlSUuAFdLY66BWaFI7BasMCA==}
+  /npm/8.5.0:
+    resolution: {integrity: sha512-L0yvQ8xkkM78YSZfO634auG0n4SleCa536n1rJ2uYJn6rzqyXnm6DpS2eQIq2g6b2JsA2XdZO41wkZWpsHNCAQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16}
     hasBin: true
     dev: true
@@ -16321,7 +16320,7 @@ packages:
     peerDependencies:
       prettier: ^2.0.0
     dependencies:
-      node-sql-parser: 4.0.8
+      node-sql-parser: 4.1.0
       prettier: 2.5.1
       sql-formatter: 4.0.2
     dev: true
@@ -17583,7 +17582,7 @@ packages:
       semantic-release: 19.0.2
       semantic-release-gh: 0.0.7_semantic-release@19.0.2
       semantic-release-npm-deprecate-old-versions: 1.3.2
-      semantic-release-python: 2.5.17
+      semantic-release-python: 2.5.20
       tslib: 2.3.1
       yaml: 1.10.2
     transitivePeerDependencies:
@@ -17630,8 +17629,8 @@ packages:
       - encoding
     dev: true
 
-  /semantic-release-python/2.5.17:
-    resolution: {integrity: sha512-VgWwkcchJdDMtYBjWJnYHWlBxHHUoUvrBI+Vz3oprPsTTCrt2ETqp7ki8Udk1f41M03Ir/lSaAodSUKyHB/7sA==}
+  /semantic-release-python/2.5.20:
+    resolution: {integrity: sha512-ZsM5JWAWW47vxIPekk036eRGXMHLMKHZTZuGPNohTqQ1DPc9qbFqxQDnonrmbi5ElfmMbHjCgRVZVP8RdlhQng==}
     engines: {node: '>=14.18.0'}
     requiresBuild: true
     dependencies:
@@ -19733,12 +19732,12 @@ packages:
       xml-name-validator: 3.0.0
     dev: true
 
-  /wait-on/6.0.0:
-    resolution: {integrity: sha512-tnUJr9p5r+bEYXPUdRseolmz5XqJTTj98JgOsfBn7Oz2dxfE2g3zw1jE+Mo8lopM3j3et/Mq1yW7kKX6qw7RVw==}
+  /wait-on/6.0.1:
+    resolution: {integrity: sha512-zht+KASY3usTY5u2LgaNqn/Cd8MukxLGjdcZxT2ns5QzDmTFc4XoWBgC+C/na+sMRZTuVygQoMYwdcVjHnYIVw==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     dependencies:
-      axios: 0.21.4
+      axios: 0.25.0
       joi: 17.6.0
       lodash: 4.17.21
       minimist: 1.2.5

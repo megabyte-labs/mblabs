@@ -16380,6 +16380,7 @@ packages:
   /prettier-config-sexy-mode/1.0.3_typescript@4.5.5:
     resolution: {integrity: sha512-A4bP9Ktdxyx5c+yd6reU5zcNqieIkyNwjoAo8vfjgxa3ZWpt2eRBeqKd7ru8gcrNOCiPI57JXXFjuDEvU0lfWg==}
     engines: {node: '>=14.18.0'}
+    deprecated: Deprecated in favor of 1.1.0
     dependencies:
       '@prettier/plugin-php': 0.17.6_prettier@2.5.1
       '@prettier/plugin-pug': 1.19.2_prettier@2.5.1
@@ -19266,7 +19267,7 @@ packages:
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.9.2
-      tsconfig-paths: 3.12.0
+      tsconfig-paths: 3.13.0
     dev: true
 
   /tsconfig-paths/3.12.0:

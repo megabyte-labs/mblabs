@@ -25,20 +25,22 @@
     "dist/"
   ],
   "scripts": {
-    "build": "nest build",
-    "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
-    "commit": "task commit",
-    "fix": "task fix",
-    "help": "task --menu",
-    "lint": "task list",
-    "preload": "task preload",
-    "prepare": "npm run start && (test -f Taskfile.yml && task common:husky) || true",
+    "build": "bash start.sh && nest build",
+    "bump": "npm run build && SKIP_NPM_PREPUBLISHONLY=true npm version patch --no-commit-hooks --no-git-tag-version --force && SKIP_NPM_PREPUBLISHONLY=true npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task list",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
     "publish": "task publish:semantic-release",
-    "release": "task publish:semantic-release",
+    "prepublishOnly": "test -z SKIP_NPM_PREPUBLISHONLY && bash start.sh && task npm:bundle:create || true",
+    "release": "bash start.sh && task publish:semantic-release",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash start.sh",
-    "test": "[[ -z $CI ]] && task npm:test || task npm:test:ci",
-    "update": "task update"
+    "start": "test -z SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && [[ -z $CI ]] && task npm:test || task npm:test:ci",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update"
   },
   "config": {
     "commitizen": {
@@ -63,21 +65,19 @@
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/config-conventional": "latest",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
     "@types/node": "^16.11.6",
     "@types/shelljs": "^0.8.9",
     "@types/update-notifier": "^5.1.0",
-    "@washingtondc/development": "latest",
     "@washingtondc/eslint": "^1.0.1",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
-    "glob": "^7.2.0",
-    "handlebars-helpers": "^0.10.0",
+    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
     "nest-commander-schematics": "^2.0.1",
     "nest-commander-testing": "^2.0.1",
@@ -85,7 +85,7 @@
     "remark-man": "^8.0.0",
     "semantic-release-config": "latest",
     "source-map-support": "^0.5.20",
-    "typescript": "^4.5.5"
+    "typescript": "latest"
   },
   "keywords": [
     "bin",
@@ -299,6 +299,7 @@
       "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
       "test": "Runs the appropriate test logic by running the test command defined under scripts in package.json",
+      "unpack": "Populates production node_modules from compressed copies saved in the .modules/ folder",
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },

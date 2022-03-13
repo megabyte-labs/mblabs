@@ -30,7 +30,7 @@
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task list",
+    "lint": "bash start.sh && task lint",
     "preload": "bash start.sh && task preload",
     "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
     "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
@@ -59,11 +59,12 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "shelljs": "^0.8.4",
-    "update-notifier": "^5.1.0",
-    "tslib": "latest"
+    "tslib": "latest",
+    "update-notifier": "^5.1.0"
   },
   "optionalDependencies": {},
   "devDependencies": {
+    "@commitlint/config-conventional": "latest",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
@@ -75,6 +76,7 @@
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
+    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
     "nest-commander-schematics": "^2.0.1",
     "nest-commander-testing": "^2.0.1",
@@ -82,9 +84,7 @@
     "remark-man": "^8.0.0",
     "semantic-release-config": "latest",
     "source-map-support": "^0.5.20",
-    "typescript": "latest",
-    "@commitlint/config-conventional": "latest",
-    "handlebars-helpers": "latest"
+    "typescript": "^4.5.5"
   },
   "keywords": [
     "bin",
@@ -146,7 +146,9 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {

@@ -15,18 +15,8 @@
     "url": "https://gitlab.com/megabyte-labs/npm/cli/mblabs/-/issues"
   },
   "type": "module",
-  "main": "dist/main.js",
-  "man": "man",
-  "bin": {
-    "common-shared": "bin/cli"
-  },
-  "files": [
-    "bin/",
-    "dist/"
-  ],
   "scripts": {
     "build": "bash start.sh && nest build",
-    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
@@ -46,72 +36,22 @@
       "path": "node_modules/git-cz-emoji"
     }
   },
-  "typings": "dist/main.d.ts",
-  "dependencies": {
-    "@nestjs/common": "8.1.2",
-    "@nestjs/config": "^1.0.3",
-    "@nestjs/core": "8.1.2",
-    "chalk": "^4.1.2",
-    "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1",
-    "cosmiconfig": "^7.0.1",
-    "nest-commander": "^2.3.3",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0",
-    "shelljs": "^0.8.4",
-    "tslib": "latest",
-    "update-notifier": "^5.1.0"
-  },
+  "dependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
     "@commitlint/config-conventional": "latest",
-    "@nestjs/cli": "^8.0.0",
-    "@nestjs/schematics": "^8.0.0",
-    "@nestjs/testing": "^8.0.0",
-    "@types/node": "^16.11.6",
-    "@types/shelljs": "^0.8.9",
-    "@types/update-notifier": "^5.1.0",
-    "@washingtondc/eslint": "^1.0.1",
-    "esbuild": "^0.12.29",
-    "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
     "handlebars-helpers": "latest",
-    "jest-preset-ts": "latest",
-    "nest-commander-schematics": "^2.0.1",
-    "nest-commander-testing": "^2.0.1",
     "prettier-config-sexy-mode": "latest",
-    "remark-man": "^8.0.0",
     "semantic-release-config": "latest",
-    "source-map-support": "^0.5.20",
     "typescript": "^4.5.5"
   },
   "keywords": [
-    "bin",
-    "cli",
-    "commander",
-    "config",
-    "cosmicconfig",
-    "editorconfig",
-    "eslint",
-    "eslint-config",
-    "formatter",
-    "inquirer",
-    "javascript",
-    "lint",
-    "linter",
-    "manpage",
     "mblabs",
     "megabytelabs",
-    "nestjs",
-    "prettier",
     "professormanhattan",
-    "schema",
-    "toml",
-    "tsdoc",
-    "typescript",
-    "washingtondc",
-    "yaml"
+    "washingtondc"
   ],
   "engines": {
     "node": ">=14.18.0"
@@ -121,19 +61,10 @@
     "access": "public"
   },
   "blueprint": {
-    "customPackageName": "mblabs",
-    "description": "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem",
-    "group": "npm",
-    "name": "MBLabs",
-    "overview": "**MBLabs** is a CLI made with [Nest.js](https://nestjs.com/) and [Nest.js Commander](https://docs.nestjs.com/recipes/nest-commander). It performs miscellaneous tasks that do not quite fit in other projects. For instance, it:\n\n* Houses various prompts used by our Taskfile.yml setup",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/mblabs",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/cli/mblabs"
-    },
-    "slug": "mblabs",
-    "subgroup": "cli",
-    "subheader_description": "MBLabs is the CLI tool where we store functionality that does not quite fit anywhere else",
-    "title": "MBLabs - A Megabyte Labs Tool"
+    }
   },
   "changelog": {
     "displayTypes": [
@@ -146,14 +77,13 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
-    "extends": "eslint-config-strict-mode",
-    "rules": {
-      "import/no-extraneous-dependencies": "warn"
-    }
+    "extends": "eslint-config-strict-mode"
   },
   "funding": [
     {
@@ -165,44 +95,82 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
-  "jest": {
-    "preset": "jest-preset-ts",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
-  },
-  "nodemonConfig": {
-    "exec": "tsc -p . && node --inspect-brk dist/main",
-    "ext": "js,jsx,json,ts,tsx,yml",
-    "ignore": [
-      "src/**/*.spec.ts"
+  "lint-staged": {
+    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
+      "task fix:prettier --"
     ],
-    "watch": [
-      ".env",
-      "src"
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*!(template).(json|webapp|webmanifest)": [
+      "task fix:json --"
+    ],
+    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.(yml|yaml)": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.go": [
+      "task fix:go --",
+      "task lint:go --"
+    ],
+    "**/*.md": [
+      "task fix:markdown --",
+      "task lint:spelling:markdown --"
+    ],
+    "**/*.php": [
+      "task fix:php --",
+      "task lint:php --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
+    "**/*.sh": [
+      "task fix:prettier --",
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task fix:toml --",
+      "task fix:prettier --",
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "Dockerfile": [
+      "task fix:prettier --",
+      "task lint:docker --"
+    ],
+    "Vagrantfile": [
+      "task fix:prettier --",
+      "task lint:vagrant"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
     ]
   },
   "ntl": {
     "descriptions": {
       "build": "Builds the project using the build command specified under scripts in package.json",
-      "bump": "Used to quickly build, increase the package.json version, and publish the package",
       "commit": "If unsure, use this task to commit your code so that it adheres to our commit rules",
       "fix": "Run auto-fixing with all available auto-fixers",
       "help": "Display the Bodega Taskfile.yml interactive help menu",
       "lint": "Lint the project with all available linters",
       "preload": "Preload the operating system with commonly used libraries and tools",
       "prepare": "A hook triggered by running npm install that runs logic such as installing pre-commit hooks",
-      "publish": "Publish the software to all supported channels using semantic-release",
       "release": "Publish the software to all supported channels using semantic-release",
       "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
@@ -211,14 +179,9 @@
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },
-  "pkg": {
-    "compress": "Brotli",
-    "outputPath": "build"
-  },
   "pnpm": {
     "allowedVersions": {
       "@typescript-eslint/eslint-plugin": "5",
-      "eslint": "8",
       "typescript": "4"
     },
     "neverBuiltDependencies": [

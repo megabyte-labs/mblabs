@@ -64,6 +64,7 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
   - [Developer Requirements](#developer-requirements)
+- [This Repository (Shared Common)](#this-repository-shared-common)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -96,7 +97,11 @@ npm run help
 
 `npm run help` will ensure Bodega is installed and then open an interactive dialog where you can explore and learn about various developer commands.
 
-{{ load:docs/partials/guide.md }}
+<a href="#this-repository-shared-common" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## This Repository (Shared Common)
+
+This repository houses files that propagate downstream to project-specific repositories.
 
 <a href="#contributing" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 

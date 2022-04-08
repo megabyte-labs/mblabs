@@ -1,0 +1,126 @@
+---
+announce:
+  linkedin:
+    enabled: false
+    message_template: 'MBLabs {{ .Tag }} is out! Check it out at {{ .ReleaseURL }}.'
+  reddit:
+    application_id: 'O3UxD7HlPpcN88gpEkPIXQ'
+    enabled: false
+    title_template: 'MBLabs {{ .Tag }} was just released!'
+    url_template: 'https://github.com/megabyte-labs/mblabs/releases/tag/{{ .Tag }}'
+    username: 'tsgangster'
+  skip: '{{gt .Patch 0}}'
+  slack:
+    channel: '#misc'
+    enabled: true
+    icon_url: 'https://gitlab.com/megabyte-labs/misc/assets/-/raw/master/logo/megabytelabs-color-icon-350x350.png'
+    message_template: '**[MBLabs](https://github.com/megabyte-labs/mblabs)** {{.Tag}} is out! Check it out at {{.ReleaseURL}}.'
+    username: 'Megabyte Labs Release Notification Bot'
+  teams:
+    color: '#1DA1F2'
+    enabled: false
+    icon_url: 'https://gitlab.com/megabyte-labs/misc/assets/-/raw/master/logo/megabytelabs-color-icon-350x350.png'
+    message_template: 'MBLabs {{ .Tag }} is out! Check it out at {{ .ReleaseURL }}.'
+    title_template: 'MBLabs {{ .Tag }} has been released!'
+  twitter:
+    enabled: false
+    message_template: 'MBLabs {{ .Tag }} is out with new features! Check it out at {{ .ReleaseURL }}.'
+
+archives:
+  - files:
+      - README.md
+      - LICENSE
+      - completion/**/*
+    format_overrides:
+      - format: zip
+        goos: windows
+
+brews:
+  - description: 'A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem'
+    folder: 'Formula'
+    homepage: 'https://megabyte.space'
+    install: |-
+      bin.install ""
+      bash_completion.install "completion/bash/.bash" => ""
+      zsh_completion.install "completion/zsh/_" => "_"
+      fish_completion.install "completion/fish/.fish"
+    license: 'MIT'
+    name: ''
+    tap:
+      name: 'homebrew-tap'
+      owner: 'installdoc'
+    test: ''
+
+builds:
+  binary: ''
+  goarch:
+    - amd64
+  hooks:
+    post: task npm:build:pkg
+  main: .config/dummy.go
+
+checksum:
+  name_template: CHECKSUMS.txt
+
+dist: build
+
+dockers:
+  - build_flag_templates:
+      - --platform=linux/amd64
+    dockerfile: .config/Dockerfile
+    goarch: amd64
+    goos: linux
+    image_templates:
+      - 'megabytelabs/{{.ProjectName}}'
+      - 'megabytelabs/{{.ProjectName}}:{{.Tag}}'
+      - 'megabytelabs/{{.ProjectName}}:v{{ .Major }}'
+    use: buildx
+
+gomod:
+  proxy: 
+
+nfpms:
+  - description: 'A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem'
+    formats:
+      - apk
+      - deb
+      - rpm
+    homepage: 'https://megabyte.space'
+    id: default
+    license: 'MIT'
+    maintainer: 'Megabyte Labs <help@megabyte.space>'
+    recommends:
+      - git
+    suggests:
+      - docker
+      - jq
+      - yq
+    vendor: 'Megabyte LLC'
+
+project_name: 'MBLabs'
+
+release:
+  disable: true
+
+# eslint-disable max-len
+snapcrafts:
+  - confinement: ''
+    # yamllint disable-line rule:line-length
+    description: '**MBLabs** is a CLI made with [Nest.js](https://nestjs.com/) and [Nest.js Commander](https://docs.nestjs.com/recipes/nest-commander). It performs miscellaneous tasks that do not quite fit in other projects. For instance, it:
+
+* Houses various prompts used by our Taskfile.yml setup'
+    extra_files:
+      - destination: completion
+        mode: 0755
+        source: completion
+    id: default
+    license: 'MIT'
+    publish: true
+    summary: 'A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem'
+# eslint-enable max-len
+
+snapshot:
+  name_template: '{{.Tag}}'
+
+universal_binaries:
+  - replace: true

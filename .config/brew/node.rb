@@ -1,9 +1,9 @@
 require "language/node"
 
-class CommonShared < Formula
-  desc "Includes common files used across different types of common file repositories (e.g. Go, Python, TypeScript, Go, more..)"
+class Mblabs < Formula
+  desc "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem"
   homepage "https://megabyte.space"
-  url "https://registry.npmjs.org/@installdoc/common-shared/-/common-shared-0.0.1.tgz"
+  url "https://registry.npmjs.org/mblabs/-/mblabs-1.0.26.tgz"
   sha256 ""
   license "MIT"
 
@@ -17,7 +17,7 @@ class CommonShared < Formula
   end
 
   test do
-    output = shell_output("#{bin}/@installdoc/common-shared --help 2>&1", 1)
+    output = shell_output("#{bin}/mblabs --help 2>&1", 1)
     assert_match "You can log in via contentful login", output
     assert_match "Or provide a management token via --management-token argument", output
   end

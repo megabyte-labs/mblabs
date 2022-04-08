@@ -1,19 +1,19 @@
-class CommonShared < Formula
-  desc "Includes common files used across different types of common file repositories (e.g. Go, Python, TypeScript, Go, more..)"
+class Mblabs < Formula
+  desc "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem"
   homepage "https://megabyte.space"
-  url "https://github.com/ProfessorManhattan/common-shared/releases/download/v0.0.1/common-shared.tar.gz"
-  version "0.0.1"
+  url "https://github.com/megabyte-labs/mblabs/releases/download/v1.0.26/mblabs.tar.gz"
+  version "1.0.26"
   license "MIT"
 
-
+  
 
   def install
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    bin.install "build/bin/common-shared-#{os}_#{arch}" => "common-shared"
+    bin.install "build/bin/mblabs-#{os}_#{arch}" => "mblabs"
   done
 
   test do
-    system bin/"common-shared", "--version"
+    system bin/"mblabs", "--version"
   end
 end

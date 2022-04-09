@@ -1,3 +1,4 @@
+# @binaryBrew [Mblabs](https://github.com/megabyte-labs/mblabs) - A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem
 class Mblabs < Formula
   desc "A CLI that provides various miscellaneous functions used in the Megabyte Labs ecosystem"
   homepage "https://megabyte.space"
